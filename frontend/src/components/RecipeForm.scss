@@ -1,0 +1,207 @@
+@use '../styles/index' as styles;
+
+.recipe-form {
+  background-color: styles.$white;
+  border-radius: styles.$border-radius-md;
+  box-shadow: styles.$shadow-sm;
+  padding: styles.$spacing-lg;
+  margin-bottom: styles.$spacing-lg;
+
+  &__section {
+    margin-bottom: styles.$spacing-lg;
+
+    &:last-of-type {
+      margin-bottom: styles.$spacing-md;
+    }
+  }
+
+  &__section-title {
+    font-size: 20px;
+    margin: 0 0 styles.$spacing-md;
+    padding-bottom: styles.$spacing-sm;
+    border-bottom: 1px solid styles.$border-color;
+    color: styles.$text-color;
+  }
+
+  &__row {
+    display: flex;
+    gap: styles.$spacing-md;
+
+    @include styles.mobile {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__field {
+    margin-bottom: styles.$spacing-md;
+  }
+
+  &__field--half {
+    flex: 1;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: styles.$spacing-xs;
+    font-weight: styles.$font-weight-medium;
+    font-size: styles.$font-size-small;
+    color: styles.$text-color;
+  }
+
+  &__input, &__textarea {
+    @include styles.form-control;
+  }
+
+  &__input:disabled, &__textarea:disabled {
+    background-color: rgba(styles.$border-color, 0.1);
+    cursor: not-allowed;
+  }
+
+  &__textarea {
+    resize: vertical;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: styles.$spacing-sm;
+  }
+
+  &__list-item {
+    display: flex;
+    gap: styles.$spacing-sm;
+  }
+
+  &__list-remove-btn {
+    background: none;
+    border: none;
+    color: styles.$danger-color;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+  }
+
+  &__list-remove-btn:hover:not(:disabled) {
+    background-color: rgba(styles.$danger-color, 0.1);
+  }
+
+  &__list-remove-btn:disabled {
+    color: styles.$text-lighter;
+    cursor: not-allowed;
+  }
+
+  &__list-remove-btn .material-icons {
+    font-size: 20px;
+  }
+
+  &__list-add-btn {
+    background: none;
+    border: 1px dashed styles.$border-color;
+    border-radius: styles.$border-radius-sm;
+    padding: styles.$spacing-sm styles.$spacing-md;
+    margin-top: styles.$spacing-sm;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: styles.$text-light;
+    font-size: styles.$font-size-small;
+    gap: styles.$spacing-xs;
+  }
+
+  &__list-add-btn:hover:not(:disabled) {
+    background-color: rgba(styles.$primary-color, 0.05);
+    border-color: styles.$primary-color;
+    color: styles.$primary-color;
+  }
+
+  &__list-add-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &__list-add-btn .material-icons {
+    font-size: 18px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: styles.$spacing-sm;
+    margin-top: styles.$spacing-xs;
+  }
+
+  &__category-label {
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-xs;
+    font-size: styles.$font-size-small;
+    padding: styles.$spacing-xs styles.$spacing-sm;
+    background-color: rgba(styles.$border-color, 0.2);
+    border-radius: styles.$border-radius-sm;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  &__category-label:hover {
+    background-color: rgba(styles.$primary-color, 0.1);
+  }
+
+  input:checked + &__category-label {
+    background-color: rgba(styles.$primary-color, 0.2);
+    color: styles.$primary-color;
+  }
+
+  &__category-label:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &__category-checkbox {
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: styles.$spacing-md;
+    margin-top: styles.$spacing-lg;
+  }
+
+  &__button {
+    padding: styles.$spacing-sm styles.$spacing-lg;
+    border: none;
+    border-radius: styles.$border-radius-sm;
+    font-size: styles.$font-size-base;
+    font-weight: styles.$font-weight-medium;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  &__button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &__button--primary {
+    background-color: styles.$primary-color;
+    color: white;
+  }
+
+  &__button--primary:hover:not(:disabled) {
+    background-color: styles.$primary-dark;
+  }
+  
+  &__button--secondary {
+    background-color: styles.$background-color;
+    color: styles.$text-color;
+  }
+
+  &__button--secondary:hover:not(:disabled) {
+    background-color: styles.$border-color;
+  }
+}
