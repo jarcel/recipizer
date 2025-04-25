@@ -1,0 +1,48 @@
+@use './styles/index' as styles;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: styles.$font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: styles.$background-color;
+  color: styles.$text-color;
+  line-height: 1.5;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include styles.tablet {
+    padding: 32px;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+
+  @include styles.tablet {
+    max-width: 720px;
+  }
+
+  @include styles.desktop {
+    max-width: 1140px;
+  }
+}
