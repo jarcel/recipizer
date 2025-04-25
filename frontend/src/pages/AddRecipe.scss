@@ -1,0 +1,85 @@
+@use '../styles/index' as styles;
+
+.add-recipe {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 28px;
+    margin-bottom: styles.$spacing-lg;
+    color: styles.$text-color;
+  }
+
+  &__error {
+    background-color: rgba(styles.$danger-color, 0.1);
+    color: styles.$danger-color;
+    padding: styles.$spacing-sm styles.$spacing-md;
+    border-radius: styles.$border-radius-sm;
+    margin-bottom: styles.$spacing-md;
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-sm;
+
+    .material-icons {
+      font-size: 18px;
+    }
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    margin: styles.$spacing-xl 0;
+    color: styles.$text-lighter;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: styles.$border-color;
+    }
+
+    span {
+      padding: 0 styles.$spacing-md;
+      font-weight: styles.$font-weight-medium;
+    }
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    margin-bottom: styles.$spacing-md;
+    color: styles.$text-color;
+  }
+
+  &__limit-reached {
+    background-color: styles.$white;
+    border-radius: styles.$border-radius-md;
+    box-shadow: styles.$shadow-sm;
+    padding: styles.$spacing-xl;
+    text-align: center;
+    margin: styles.$spacing-xl 0;
+
+    .material-icons {
+      font-size: 48px;
+      color: styles.$warning-color;
+      margin-bottom: styles.$spacing-md;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: styles.$spacing-sm;
+      color: styles.$text-color;
+    }
+
+    p {
+      margin-bottom: styles.$spacing-lg;
+      color: styles.$text-light;
+    }
+  }
+
+  &__upgrade-button {
+    @include styles.button-primary;
+    display: inline-flex;
+    text-decoration: none;
+  }
+}

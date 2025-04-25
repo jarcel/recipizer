@@ -1,0 +1,74 @@
+@use '../styles/index' as styles;
+
+.edit-recipe {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 28px;
+    margin-bottom: styles.$spacing-lg;
+    color: styles.$text-color;
+  }
+
+  &__loading,
+  &__error {
+    text-align: center;
+    padding: styles.$spacing-xxl 0;
+    color: styles.$text-light;
+  }
+
+  &__spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(styles.$primary-color, 0.3);
+    border-radius: 50%;
+    border-top-color: styles.$primary-color;
+    animation: spin 1s linear infinite;
+    margin: 0 auto styles.$spacing-md;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__error {
+    .material-icons {
+      font-size: 48px;
+      color: styles.$danger-color;
+      margin-bottom: styles.$spacing-md;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: styles.$spacing-sm;
+      color: styles.$text-color;
+    }
+
+    p {
+      margin-bottom: styles.$spacing-lg;
+      color: styles.$text-light;
+    }
+  }
+
+  &__back-button {
+    @include styles.button-outline;
+    display: inline-flex;
+  }
+
+  &__error-message {
+    background-color: rgba(styles.$danger-color, 0.1);
+    color: styles.$danger-color;
+    padding: styles.$spacing-sm styles.$spacing-md;
+    border-radius: styles.$border-radius-sm;
+    margin-bottom: styles.$spacing-md;
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-sm;
+
+    .material-icons {
+      font-size: 18px;
+    }
+  }
+}

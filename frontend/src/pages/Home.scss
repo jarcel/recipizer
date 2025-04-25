@@ -1,0 +1,211 @@
+@use '../styles/index' as styles;
+
+.home {
+  &__hero {
+    display: flex;
+    gap: styles.$spacing-xl;
+    align-items: center;
+    margin-bottom: styles.$spacing-xxl;
+
+    @include styles.mobile {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__hero-content {
+    flex: 1;
+  }
+
+  &__hero-image {
+    flex: 1;
+
+    @include styles.mobile {
+      margin-bottom: styles.$spacing-lg;
+    }
+  }
+
+  &__hero-image img {
+    width: 100%;
+    border-radius: styles.$border-radius-lg;
+    box-shadow: styles.$shadow-md;
+  }
+
+  &__title {
+    margin-bottom: styles.$spacing-md;
+    color: styles.$text-color;
+    @include styles.heading-1;
+  }
+
+  &__subtitle {
+    font-size: styles.$font-size-large;
+    color: styles.$text-light;
+    margin-bottom: styles.$spacing-md;
+    line-height: 1.5;
+  }
+  
+  &__extract-form {
+    margin-bottom: styles.$spacing-md;
+    width: 100%;
+  }
+  
+  &__input-group {
+    display: flex;
+    width: 100%;
+    
+    @include styles.mobile {
+      flex-direction: column;
+      gap: styles.$spacing-xs;
+    }
+  }
+  
+  &__input {
+    flex: 1;
+    height: 48px;
+    padding: 0 styles.$spacing-md;
+    border: 2px solid rgba(styles.$primary-color, 0.3);
+    border-radius: styles.$border-radius-sm 0 0 styles.$border-radius-sm;
+    font-size: styles.$font-size-base;
+    box-shadow: styles.$shadow-sm;
+    
+    &:focus {
+      outline: none;
+      border-color: styles.$primary-color;
+    }
+    
+    @include styles.mobile {
+      border-radius: styles.$border-radius-sm;
+    }
+  }
+  
+  &__extract-button {
+    height: 48px;
+    padding: 0 styles.$spacing-md;
+    background-color: styles.$primary-color;
+    color: white;
+    border: none;
+    border-radius: 0 styles.$border-radius-sm styles.$border-radius-sm 0;
+    font-weight: styles.$font-weight-medium;
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-xs;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: styles.$primary-dark;
+    }
+    
+    @include styles.mobile {
+      border-radius: styles.$border-radius-sm;
+    }
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: styles.$spacing-md;
+    align-items: flex-start;
+  }
+
+  &__cta-button {
+    @include styles.button-primary;
+    padding: styles.$spacing-sm styles.$spacing-xl;
+    font-size: styles.$font-size-base;
+    text-decoration: none;
+    margin-right: styles.$spacing-md;
+    
+    &--secondary {
+      @include styles.button-outline;
+      padding: styles.$spacing-sm styles.$spacing-xl;
+    }
+  }
+
+  &__cta-button--large {
+    padding: styles.$spacing-md styles.$spacing-xxl;
+    font-size: styles.$font-size-large;
+  }
+
+  &__cta-link {
+    color: styles.$primary-color;
+    text-decoration: none;
+    font-size: styles.$font-size-base;
+  }
+
+  &__cta-link:hover {
+    text-decoration: underline;
+  }
+
+  &__section-title {
+    text-align: center;
+    margin-bottom: styles.$spacing-xl;
+    @include styles.heading-2;
+  }
+
+  &__features {
+    padding: styles.$spacing-xxl 0;
+    background-color: rgba(styles.$background-color, 0.5);
+    margin: 0 -24px;
+    padding: styles.$spacing-xxl 24px;
+
+    @include styles.tablet {
+      margin: 0 -32px;
+      padding: styles.$spacing-xxl 32px;
+    }
+  }
+
+  &__features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: styles.$spacing-lg;
+  }
+
+  &__feature {
+    background-color: styles.$white;
+    border-radius: styles.$border-radius-md;
+    padding: styles.$spacing-lg;
+    box-shadow: styles.$shadow-sm;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  &__feature:hover {
+    transform: translateY(-4px);
+    box-shadow: styles.$shadow-md;
+  }
+
+  &__feature-icon {
+    font-size: 48px;
+    color: styles.$primary-color;
+    margin-bottom: styles.$spacing-md;
+  }
+
+  &__feature-title {
+    font-size: 20px;
+    margin-bottom: styles.$spacing-sm;
+    color: styles.$text-color;
+  }
+
+  &__feature-description {
+    color: styles.$text-light;
+    line-height: 1.5;
+  }
+
+  &__cta-section {
+    text-align: center;
+    padding: styles.$spacing-xxl 0;
+  }
+
+  &__cta-title {
+    margin-bottom: styles.$spacing-md;
+    @include styles.heading-2;
+  }
+
+  &__cta-description {
+    font-size: styles.$font-size-large;
+    color: styles.$text-light;
+    margin-bottom: styles.$spacing-lg;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

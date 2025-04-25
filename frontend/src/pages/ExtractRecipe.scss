@@ -1,0 +1,89 @@
+@use '../styles/index' as styles;
+
+.extract-recipe {
+  max-width: 900px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+    margin-bottom: styles.$spacing-lg;
+  }
+
+  &__title {
+    font-size: 28px;
+    margin-bottom: styles.$spacing-sm;
+    color: styles.$text-color;
+  }
+
+  &__description {
+    color: styles.$text-light;
+    font-size: styles.$font-size-base;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__cta {
+    margin-top: styles.$spacing-xl;
+    background-color: rgba(styles.$primary-color, 0.05);
+    border-radius: styles.$border-radius-lg;
+    padding: styles.$spacing-lg;
+    border: 1px solid rgba(styles.$primary-color, 0.2);
+  }
+
+  &__cta-content {
+    text-align: center;
+  }
+
+  &__cta-content h2 {
+    font-size: 24px;
+    margin-bottom: styles.$spacing-sm;
+    color: styles.$text-color;
+  }
+
+  &__cta-content p {
+    color: styles.$text-light;
+    margin-bottom: styles.$spacing-md;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cta-buttons {
+    display: flex;
+    gap: styles.$spacing-md;
+    justify-content: center;
+    
+    @include styles.mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: styles.$spacing-sm styles.$spacing-lg;
+    text-decoration: none;
+    font-weight: styles.$font-weight-medium;
+    border-radius: styles.$border-radius-sm;
+    transition: all 0.2s;
+    
+    &.primary {
+      background-color: styles.$primary-color;
+      color: white;
+      
+      &:hover {
+        background-color: styles.$primary-dark;
+      }
+    }
+    
+    &.secondary {
+      background-color: white;
+      color: styles.$text-color;
+      border: 1px solid styles.$border-color;
+      
+      &:hover {
+        background-color: styles.$background-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,320 @@
+@use '../styles/index' as styles;
+
+.recipe-detail {
+  max-width: 900px;
+  margin: 0 auto;
+
+  &__loading, &__error {
+    text-align: center;
+    padding: styles.$spacing-xxl 0;
+    color: styles.$text-light;
+  }
+
+  &__spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(styles.$primary-color, 0.3);
+    border-radius: 50%;
+    border-top-color: styles.$primary-color;
+    animation: spin 1s linear infinite;
+    margin: 0 auto styles.$spacing-md;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__error .material-icons {
+    font-size: 48px;
+    color: styles.$danger-color;
+    margin-bottom: styles.$spacing-md;
+  }
+
+  &__error h2 {
+    font-size: 24px;
+    margin-bottom: styles.$spacing-sm;
+    color: styles.$text-color;
+  }
+
+  &__error p {
+    margin-bottom: styles.$spacing-lg;
+    color: styles.$text-light;
+  }
+
+  &__back-link {
+    @include styles.button-outline;
+    display: inline-flex;
+    text-decoration: none;
+    margin-top: styles.$spacing-md;
+  }
+
+  &__header {
+    @include styles.flex-between;
+    margin-bottom: styles.$spacing-lg;
+    flex-wrap: wrap;
+    gap: styles.$spacing-md;
+
+    @include styles.mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: styles.$spacing-xs;
+    color: styles.$text-light;
+    text-decoration: none;
+    font-size: styles.$font-size-small;
+    margin-bottom: styles.$spacing-sm;
+
+    &:hover {
+      color: styles.$primary-color;
+    }
+  }
+
+  &__back .material-icons {
+    font-size: 18px;
+  }
+
+  &__title {
+    font-size: 32px;
+    margin: 0 0 styles.$spacing-sm;
+    color: styles.$text-color;
+
+    @include styles.mobile {
+      font-size: 24px;
+    }
+  }
+
+  &__description {
+    font-size: styles.$font-size-base;
+    color: styles.$text-light;
+    margin: 0;
+    max-width: 600px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: styles.$spacing-sm;
+    flex-wrap: wrap;
+
+    @include styles.mobile {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  &__action-btn {
+    @include styles.button-outline;
+    height: 36px;
+    gap: styles.$spacing-xs;
+  }
+
+  &__action-btn--danger {
+    border-color: styles.$danger-color;
+    color: styles.$danger-color;
+
+    &:hover {
+      background-color: rgba(styles.$danger-color, 0.1);
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: styles.$spacing-lg;
+
+    @include styles.mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: styles.$border-radius-md;
+    margin-bottom: styles.$spacing-lg;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  &__info {
+    background-color: styles.$white;
+    border-radius: styles.$border-radius-md;
+    padding: styles.$spacing-md;
+    box-shadow: styles.$shadow-sm;
+    margin-bottom: styles.$spacing-lg;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: styles.$spacing-md;
+    margin-bottom: styles.$spacing-md;
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-sm;
+  }
+
+  &__meta-item .material-icons {
+    font-size: 24px;
+    color: styles.$primary-color;
+  }
+
+  &__meta-label {
+    display: block;
+    font-size: 12px;
+    color: styles.$text-lighter;
+  }
+
+  &__meta-value {
+    display: block;
+    font-weight: styles.$font-weight-medium;
+  }
+
+  &__source {
+    border-top: 1px solid styles.$border-color;
+    padding-top: styles.$spacing-sm;
+    margin-bottom: styles.$spacing-sm;
+    font-size: styles.$font-size-small;
+  }
+
+  &__source-label {
+    color: styles.$text-lighter;
+    margin-right: styles.$spacing-xs;
+  }
+
+  &__source-link {
+    color: styles.$primary-color;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__source-link .material-icons {
+    font-size: 14px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: styles.$spacing-xs;
+  }
+
+  &__category {
+    background-color: rgba(styles.$primary-color, 0.1);
+    color: styles.$primary-color;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid styles.$primary-color;
+    padding-bottom: styles.$spacing-xs;
+    margin-bottom: styles.$spacing-md;
+  }
+
+  &__section-header h2 {
+    font-size: 22px;
+    margin: 0;
+    color: styles.$text-color;
+  }
+
+  &__servings-control {
+    display: flex;
+    align-items: center;
+    gap: styles.$spacing-xs;
+  }
+
+  &__servings-btn {
+    background: none;
+    border: 1px solid styles.$border-color;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: styles.$primary-color;
+      color: styles.$primary-color;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__servings-btn .material-icons {
+    font-size: 18px;
+  }
+
+  &__servings-value {
+    font-size: styles.$font-size-small;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  &__ingredients, &__instructions, &__notes {
+    background-color: styles.$white;
+    border-radius: styles.$border-radius-md;
+    padding: styles.$spacing-lg;
+    box-shadow: styles.$shadow-sm;
+    margin-bottom: styles.$spacing-lg;
+  }
+
+  &__ingredients-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__ingredient {
+    padding: styles.$spacing-xs 0;
+    border-bottom: 1px solid rgba(styles.$border-color, 0.5);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__instructions-list {
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+
+  &__instruction {
+    margin-bottom: styles.$spacing-md;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__notes p {
+    line-height: 1.6;
+  }
+}
